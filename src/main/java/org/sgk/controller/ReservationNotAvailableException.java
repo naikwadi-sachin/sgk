@@ -1,0 +1,1 @@
+package org.sgk.controller;import java.util.Date;public class ReservationNotAvailableException extends Exception {	private String courtName;	private Date date;	private int hour;	public ReservationNotAvailableException(String courtName, Date date,			int hour) {		super();		this.courtName = courtName;		this.date = date;		this.hour = hour;	}		}

@@ -1,0 +1,10 @@
+org\sgk\domain\Reservation.class
+org\sgk\service\ReservationServiceImpl.class
+org\sgk\config\WebappConfig.class
+org\sgk\service\ReservationService.class
+org\sgk\controller\ReservationQueryController.class
+org\sgk\domain\SportType.class
+org\sgk\controller\WelcomeController.class
+org\sgk\domain\Player.class
+org\sgk\controller\ReservationNotAvailableException.class
+org\sgk\controller\ReservationFormController.class
