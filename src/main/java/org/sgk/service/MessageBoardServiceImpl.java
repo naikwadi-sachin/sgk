@@ -5,11 +5,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.EntityManagerFactory;
+
 import org.sgk.domain.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MessageBoardServiceImpl implements MessageBoardService{
 
 	private Map<Long, Message> messages = new LinkedHashMap<Long, Message>();
+	
+	@Autowired
+	private EntityManagerFactory factory;
 	
 	@Override
 	public List<Message> listMessages() {

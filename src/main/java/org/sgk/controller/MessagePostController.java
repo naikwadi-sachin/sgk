@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MessagePostController {
 
 	private MessageBoardService messageBoardService;
+	
+	org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean l;
 
 	@Autowired
 	public void MessagePostController(MessageBoardService messageBoardService) {

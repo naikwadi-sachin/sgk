@@ -11,18 +11,18 @@ public class UserDaoTest {
 
 	private EmbeddedDatabase database;
 
-	@Before
+	//@Before
 	public void setUp() throws Exception {
 		database = new EmbeddedDatabaseBuilder().addDefaultScripts().build();
 //		assertThat(database, is(notNullValue()));
 	}
 
-	@After
+	//@After
 	public void tearDown() throws Exception {
 		database.shutdown();
 	}
 
-	@Test
+	//@Test
 	public void shouldFindUserByUsername() {
 		/*UserDao dao = new UserDao();
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(database);
