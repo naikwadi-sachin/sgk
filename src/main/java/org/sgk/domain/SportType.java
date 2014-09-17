@@ -23,5 +23,14 @@ public class SportType {
 		this.name = name;
 	}
 	
-	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof SportType)
+		{
+			SportType sportType = (SportType) obj;
+			if(this == sportType || this.getId()==sportType.getId())
+				return true;
+		}
+		return false;
+	}
 }

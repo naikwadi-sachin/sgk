@@ -1,10 +1,11 @@
 package org.sgk.domain;
 
+import javax.validation.constraints.NotNull;
+
 public class Player {
 
 	private String name;
 	private String phone;
-	
 	
 	public Player(String name, String phone) {
 		super();
