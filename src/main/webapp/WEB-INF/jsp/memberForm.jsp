@@ -15,7 +15,6 @@
 </head>
 <body>
 	<form:form method="post" modelAttribute="member">
-		<form:errors path="*" cssClass="error" />
 		<table>
 			<tr>
 				<td>Member Name</td>

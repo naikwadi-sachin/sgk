@@ -55,7 +55,7 @@ public class MemberController {
 		}
 		if(result.hasErrors())
 		{
-			return "add";
+			return "memberForm";
 		}
 		else
 		{

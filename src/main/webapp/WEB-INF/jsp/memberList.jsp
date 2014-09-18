@@ -4,15 +4,15 @@
 <title>Message List</title>
 </head>
 <body>
-	<c:forEach items="${members}" var="member">
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Phone</th>
-				<th>email</th>
-				<th>Action</th>
-			</tr>
 
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>email</th>
+			<th>Action</th>
+		</tr>
+		<c:forEach items="${members}" var="member">
 			<tr>
 				<td>${member.name}</td>
 				<td>${member.phone}</td>
@@ -20,10 +20,10 @@
 				<td colspan="2"><a href="delete?memberName=${member.name}">Delete</a>
 				</td>
 			</tr>
+		</c:forEach>
+	</table>
+	<hr />
 
-		</table>
-		<hr />
-	</c:forEach>
 	<a href="add">Add Member</a>
 </body>
 </html>
