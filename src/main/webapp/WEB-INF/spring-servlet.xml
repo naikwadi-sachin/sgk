@@ -27,17 +27,41 @@ http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 		</property>
 	</bean>
 
-	<!-- <bean id="contentNegotiatingResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"> 
-		<property name="order" value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}"></property> 
-		<property name="mediaTypes"> <map> <entry key="html" value="text/html"></entry> 
-		<entry key="pdf" value="application/pdf"></entry> <entry key="xls" value="application/vnd.ms-excel"></entry> 
-		<entry key="xml" value="application/xml"></entry> <entry key="json" value="application/json"></entry> 
-		</map> </property> </bean> -->
-	<!-- <property name="order" value="#{contentNegotiatingResolver.order+1}"></property> -->
+	<bean id="contentNegotiatingResolver"
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order"
+			value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}"></property>
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html"></entry>
+				<entry key="pdf" value="application/pdf"></entry>
+				<entry key="xls" value="application/vnd.ms-excel"></entry>
+				<entry key="xml" value="application/xml"></entry>
+				<entry key="json" value="application/json"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="order" value="#{contentNegotiatingResolver.order+1}"></property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.sgk.controller.ReservationNotAvailableException">reservationNotAvailable</prop>
+			</props>
+		</property>
+		<property name="defaultErrorView" value="error"></property>
+	</bean>
+
+	<bean id="resourceBundleViewResolver"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="order" value="#{exceptionResolver.order+1}"></property>
+		<property name="basename" value="views"></property>
+	</bean>
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="1"></property>
+		<property name="order" value="#{resourceBundleViewResolver.order+1}"></property>
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
@@ -81,15 +105,6 @@ http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 	<!-- <jdbc:embedded-database id="dataSource" type="HSQL"> <jdbc:script location="classpath:schema.sql" 
 		/> <jdbc:script location="classpath:test-data.sql" /> </jdbc:embedded-database> -->
 
-	<bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="order" value="0"></property>
-		<property name="exceptionMappings">
-			<props>
-				<prop key="org.sgk.controller.ReservationNotAvailableException">reservationNotAvailable</prop>
-			</props>
-		</property>
-		<property name="defaultErrorView" value="error"></property>
-	</bean>
+
 </beans>
 

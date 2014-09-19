@@ -70,6 +70,13 @@ public class MemberController {
 		model.addAttribute("members", memberService.list());
 		return "memberList";
 	}
+	
+	@RequestMapping(value="summary*",method=RequestMethod.GET)
+	private String generateSummary(Model model)
+	{
+		model.addAttribute("members", memberService.list());
+		return "summary";
+	}
 
 	@RequestMapping(value = { "remove", "delete" }, method = RequestMethod.GET)
 	public String removeMember(
