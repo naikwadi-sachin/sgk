@@ -215,6 +215,13 @@
 			<version>${junit.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>5.7</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
 		<!-- logger depedencies -->
 		<dependency>
 			<groupId>commons-logging</groupId>
