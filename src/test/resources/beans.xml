@@ -7,8 +7,5 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="accountService" class="org.sgk.bank.AccountServiceImpl">
 		<constructor-arg ref="accountDao"></constructor-arg>
 	</bean>
-	<bean id="reservationService" class="org.sgk.service.ReservationServiceImpl"></bean>
-	<bean id="messageBoardService" class="org.sgk.service.MessageBoardServiceImpl"></bean>
-	<bean id="memberService" class="org.sgk.service.MemberServiceImpl"></bean>
 
 </beans>

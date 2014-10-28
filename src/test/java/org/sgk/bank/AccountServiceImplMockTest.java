@@ -14,7 +14,7 @@ public class AccountServiceImplMockTest {
 	@Before
 	public void init()
 	{
-		accountDao = easyMock.createMock(AccountDao.class);
+		accountDao = EasyMock.createMock(AccountDao.class);
 		accountService = new AccountServiceImpl(accountDao);
 	}
 	
@@ -23,13 +23,13 @@ public class AccountServiceImplMockTest {
 	{
 		Account account = new Account(TEST_ACCOUNT_NO, 100);
 		accountDao.findAccount(TEST_ACCOUNT_NO);
-		easyMock.expectLastCall().andReturn(account);
+		EasyMock.expectLastCall().andReturn(account);
 		account.setBalance(150);
 		accountDao.updateAccount(account);
-		easyMock.replay();
+		EasyMock.replay();
 		
 		accountService.deposit(TEST_ACCOUNT_NO, 50);
-		easyMock.verify();
+		EasyMock.verify();
 	}
 	
 //	public void w

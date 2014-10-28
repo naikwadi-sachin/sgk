@@ -22,6 +22,8 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public void deposit(String accountNo, double amount) throws AccountNotFoundException {
 		Account account = accountDao.findAccount(accountNo);
+		if(account == null)
+			throw new AccountNotFoundException();
 		account.setBalance(account.getBalance() + amount);
 		accountDao.updateAccount(account);
 	}
@@ -29,7 +31,9 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public void withdraw(String accountNo, double amount) throws InsufficienBalanceException, AccountNotFoundException {
 		Account account = accountDao.findAccount(accountNo);
-		if(account.getBalance() < amount)
+		if(account == null)
+			throw new AccountNotFoundException();
+		else if(account.getBalance() < amount)
 			throw new InsufficienBalanceException();
 		account.setBalance(account.getBalance() - amount);
 		accountDao.updateAccount(account);
@@ -37,7 +41,10 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public double getBalance(String accountNo) throws AccountNotFoundException {
-		return accountDao.findAccount(accountNo).getBalance();
+		Account account = accountDao.findAccount(accountNo);
+		if(account == null)
+			throw new AccountNotFoundException();
+		return account.getBalance();
 	}
 
 }

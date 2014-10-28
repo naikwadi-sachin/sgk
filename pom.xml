@@ -123,6 +123,18 @@
 			<artifactId>spring-security-acl</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -215,13 +227,9 @@
 			<version>${junit.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>5.7</version>
-			<classifier>jdk15</classifier>
-		</dependency>
-		
+		<!-- <dependency> <groupId>org.testng</groupId> <artifactId>testng</artifactId> 
+			<version>5.7</version> <classifier>jdk15</classifier> </dependency> -->
+
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
